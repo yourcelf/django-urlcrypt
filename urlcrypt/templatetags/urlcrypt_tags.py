@@ -33,7 +33,7 @@ def encoded_url(parser, token):
         raise template.TemplateSyntaxError("'%s' takes at least two arguments"
                                   " (path to a view)" % bits[0])
     user = bits[1]
-    viewname = bits[2]
+    viewname = parser.compile_filter(bits[2])
     args = []
     kwargs = {}
     asvar = None
